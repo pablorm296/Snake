@@ -12,12 +12,18 @@ class Snake {
     draw() {
         // Check if out of boundaries
         if (this.x + (tileSize / 2) > w || this.x - (tileSize / 2) < 0) {
+            // Kill snake
             this.alive = false;
+            // Set direction to none (snake does not move)
+            this.direction = "none";
             return false;
         }
 
         if (this.y + (tileSize / 2) > h || this.y - (tileSize / 2) < 0) {
+            // Kill snake
             this.alive = false;
+            // Set direction to none (snake does not move)
+            this.direction = "none";
             return false;
         }
 
