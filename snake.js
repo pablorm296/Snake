@@ -25,6 +25,7 @@ class Snake {
             this.direction = "none";
         }
 
+        // Draw snake
         noStroke();
         fill(255);
         rect(this.x, this.y, tileSize);
@@ -53,24 +54,28 @@ class Snake {
 
     setDir(direction) {
         // If direction is up, move up (y-)
+        // Can't move down
         if (direction == "up") {
             if (this.direction == "down") {
                 return false;
             }
         }
         // If direction is left, move left (x-)
+        // Can't move right
         if (direction == "left") {
             if (this.direction == "right") {
                 return false;
             }
         }
         // If direction is right, move left (x+)
+        // Can't move left
         if (direction == "right") {
             if (this.direction == "left") {
                 return false;
             }
         }
         // If direction is down, move down (y+)
+        // Can't move up
         if (direction == "down") {
             if (this.direction == "up") {
                 return false;
