@@ -4,7 +4,6 @@ const size = 50;
 const tileSize = w / size;
 const fRate = 20;
 const nFood = size;
-var alive = true;
 var mainSnake;
 
 function setup() {

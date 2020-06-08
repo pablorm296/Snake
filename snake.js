@@ -1,20 +1,23 @@
 class Snake {
 
     constructor(initialX, initialY) {
+        // Set initial position
         this.x = initialX;
         this.y = initialY;
+        this.alive = true;
+        // Direction is none (snake does not move)
         this.direction = "none";
     }
 
     draw() {
         // Check if out of boundaries
         if (this.x + (tileSize / 2) > w || this.x - (tileSize / 2) < 0) {
-            alive = false;
+            this.alive = false;
             return false;
         }
 
         if (this.y + (tileSize / 2) > h || this.y - (tileSize / 2) < 0) {
-            alive = false;
+            this.alive = false;
             return false;
         }
 
