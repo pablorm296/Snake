@@ -16,7 +16,6 @@ class Snake {
             this.alive = false;
             // Set direction to none (snake does not move)
             this.direction = "none";
-            return false;
         }
 
         if (this.y + (tileSize / 2) > h || this.y - (tileSize / 2) < 0) {
@@ -24,7 +23,6 @@ class Snake {
             this.alive = false;
             // Set direction to none (snake does not move)
             this.direction = "none";
-            return false;
         }
 
         noStroke();
