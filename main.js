@@ -6,7 +6,6 @@ const fRate = 20;
 const nFood = size;
 var alive = true;
 var mainSnake;
-var mainFood;
 
 function setup() {
     // Create main canvas and center it
@@ -21,15 +20,10 @@ function setup() {
     // Change background
     background(0);
 
-    // Place food
-    mainFood = new Food(nFood);
-    console.log(mainFood);
-
 
     // Create new snake
     mainSnake = new Snake(w / 2, h / 2);
     mainSnake.draw();
-    mainFood.draw();
 }
 
 function draw() {
@@ -38,8 +32,6 @@ function draw() {
 
     // Draw snake
     mainSnake.draw();
-
-    mainFood.draw();
 }
 
 function keyPressed() {
