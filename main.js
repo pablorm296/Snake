@@ -1,10 +1,11 @@
 const w = 500;
 const h = w;
-const size = 50;
+const size = 30;
 const tileSize = w / size;
-const fRate = 20;
+const fRate = 10;
 const nFood = size;
 var mainSnake;
+var mainFood;
 
 function setup() {
     // Create main canvas and center it
@@ -19,6 +20,8 @@ function setup() {
     // Change background
     background(0);
 
+    // Create a new food
+    mainFood = new Food();
 
     // Create new snake
     mainSnake = new Snake(w / 2, h / 2);
@@ -28,6 +31,9 @@ function setup() {
 function draw() {
     // Reset background
     background(0);
+
+    // Draw food
+    mainFood.draw();
 
     // Draw snake
     mainSnake.draw();
