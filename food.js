@@ -18,7 +18,7 @@ class Food {
     draw() {
         noStroke();
         fill(46, 225, 70);
-        circle(this.x, this.y, tileSize);
+        rect(this.x, this.y, tileSize);
     }
 
 }
