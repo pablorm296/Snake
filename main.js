@@ -1,9 +1,9 @@
 const w = 500;
 const h = w;
-const size = 30;
-const tileSize = w / size;
+const nrows = 50;
+const ncols = 50;
+const tileSize = w / ncols;
 const fRate = 10;
-const nFood = size;
 var mainSnake;
 var mainFood;
 
@@ -24,7 +24,7 @@ function setup() {
     mainFood = new Food();
 
     // Create new snake
-    mainSnake = new Snake(w / 2, h / 2);
+    mainSnake = new Snake((w / 2) , h / 2);
     mainSnake.draw();
 }
 
@@ -40,6 +40,7 @@ function draw() {
 }
 
 function keyPressed() {
+    // Change snake direction (depending on key pressed)
     if (keyCode === UP_ARROW) {
         mainSnake.setDir("up");
     }
