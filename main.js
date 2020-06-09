@@ -25,7 +25,7 @@ function setup() {
 
     // Create new snake
     mainSnake = new Snake((w / 2) , h / 2);
-    mainSnake.draw();
+    mainSnake.move();
 }
 
 function draw() {
@@ -35,8 +35,8 @@ function draw() {
     // Draw food
     mainFood.draw();
 
-    // Draw snake
-    mainSnake.draw();
+    // Move snake
+    mainSnake.move();
 }
 
 function keyPressed() {
