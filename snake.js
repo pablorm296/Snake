@@ -9,13 +9,17 @@ class Snake {
         this.direction = "none";
     }
 
+    // Method to get head hoords
+    get coords () {
+        return [this.x, this.y];
+    }
+    // Method to draw snake
     draw() {
-        // Draw snake
         noStroke();
         fill(255);
         rect(this.x, this.y, tileSize);
     }
-
+    // Method to move snake
     move() {
         // Check if out of boundaries
         if (this.x + tileSize >= w || this.x <= 0) {
@@ -61,7 +65,7 @@ class Snake {
             this.draw();
         }
     }
-
+    // Method to change snake direction
     setDir(direction) {
         // If direction is up, move up (y-)
         // Can't move down
@@ -91,6 +95,7 @@ class Snake {
                 return false;
             }
         }
+        // Change direction
         this.direction = direction;
     }
 }
