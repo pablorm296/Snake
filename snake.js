@@ -2,22 +2,50 @@ class Snake {
 
     constructor(initialX, initialY) {
         // Set initial position
-        this.x = initialX;
-        this.y = initialY;
+        const x_mapped = map(initialX, 0, w, 0, ncols);
+        const y_mapped = map(initialY, 0, h, 0, nrows);
+        this.x = floor(x_mapped) * tileSize;
+        this.y = floor(y_mapped) * tileSize;
         this.alive = true;
         // Direction is none (snake does not move)
         this.direction = "none";
+        // Init body array
+        this.body = [];
     }
 
     // Method to get head hoords
-    get coords () {
+    get coords() {
         return [this.x, this.y];
     }
     // Method to draw snake
     draw() {
+        // First, draw the head
         noStroke();
         fill(255);
         rect(this.x, this.y, tileSize);
+
+        // Then, if body is > 0, draw each element of the boy
+        if (this.body.length > 0) {
+            for (let index = this.body.length - 1; index >= 0; index--) {
+                // Get body element
+                const element = this.body[index];
+                // Map body element index to a [0, 255] value
+                var color = map(index, 0, this.body.length - 1, 0, 255);
+                if (this.body.length == 1) {
+                    color = 0;
+                }
+                // Use a green gradient
+                fill(color, 255, color);
+                rect(element[0], element[1], tileSize);
+            }
+        }
+
+        // If body is > 0, shift elements and push to end head position
+        if (this.body.length > 0) {
+            this.body.shift(0);
+            this.body.push([this.x, this.y]);
+        }
+
     }
     // Method to move snake
     move() {
@@ -97,5 +125,10 @@ class Snake {
         }
         // Change direction
         this.direction = direction;
+    }
+    // Method to eat
+    eat() {
+        // Push food position to body
+        this.body.push([this.x, this.y]);
     }
 }
