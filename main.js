@@ -1,7 +1,7 @@
 const w = 500;
 const h = w;
-const nrows = 50;
-const ncols = 50;
+const nrows = 25;
+const ncols = 25;
 const tileSize = w / ncols;
 const fRate = 10;
 var mainSnake;
@@ -31,6 +31,14 @@ function setup() {
 function draw() {
     // Reset background
     background(0);
+
+    // Check if snake is in food
+    if (mainSnake.coords[0] == mainFood.coords[0] & mainSnake.coords[1] == mainFood.coords[1]) {
+        mainSnake.eat();
+
+        // Create a new food
+        mainFood = new Food();
+    }
 
     // Draw food
     mainFood.draw();
