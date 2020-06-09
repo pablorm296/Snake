@@ -10,6 +10,7 @@ class Food {
         this.y = floor(y_mapped) * tileSize;
     }
 
+    // get food coords
     get coords() {
         return [this.x, this.y];
     }
