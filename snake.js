@@ -50,43 +50,38 @@ class Snake {
     // Method to move snake
     move() {
         // Check if out of boundaries
-        if (this.x + tileSize >= w || this.x <= 0) {
-            // Kill snake
-            this.alive = false;
-            // Set direction to none (snake does not move)
-            this.direction = "none";
-            // Get constrained version of coordinate
-            this.x = constrain(this.x, 0, w - tileSize);
+        if (this.x + tileSize > w) {
+            this.x = 0;
         }
-
-        if (this.y + tileSize >= h || this.y <= 0) {
-            // Kill snake
-            this.alive = false;
-            // Set direction to none (snake does not move)
-            this.direction = "none";
-            // Get constrained version of coordinate
-            this.y = constrain(this.y, 0, h - tileSize);
+        if (this.x < 0) {
+            this.x = w;
+        }
+        if (this.y + tileSize > h) {
+            this.y = 0;
+        }
+        if (this.y < 0) {
+            this.y = h;
         }
 
         // If direction is up, move up (y-)
         if (this.direction == "up") {
-            this.y -= tileSize;
             this.draw();
+            this.y -= tileSize;
         }
         // If direction is left, move left (x-)
         if (this.direction == "left") {
-            this.x -= tileSize;
             this.draw();
+            this.x -= tileSize;
         }
         // If direction is right, move left (x+)
         if (this.direction == "right") {
-            this.x += tileSize;
             this.draw();
+            this.x += tileSize;
         }
         // If direction is down, move down (y+)
         if (this.direction == "down") {
-            this.y += tileSize;
             this.draw();
+            this.y += tileSize;
         }
         // If direction is none, return
         if (this.direction == "none") {
