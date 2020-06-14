@@ -93,7 +93,13 @@ class Snake {
 
 
         // Check if head collided with body
-        
+        for (let index = 0; index < this.body.length; index++) {
+            const bodyPart = this.body[index];
+            if (bodyPart[0] == this.coords[0] && bodyPart[1] == this.coords[1]) {
+                // Player died
+                alert(`Ups! La serpiente no se puede comer a sí misma. Obtuviste ${score} puntos.`);
+            }
+        }
     }
     // Method to change snake direction
     setDir(direction) {
@@ -134,5 +140,11 @@ class Snake {
         this.voice.play(this.note);
         // Push food position to body
         this.body.push([this.x, this.y]);
+        // Add to score
+        score = score + fRate
+        // Change note and framerate
+        fRate = fRate * (1 + dificulty);
+        frameRate(fRate);
+        this.note = this.note * (1 + dificulty);
     }
 }
