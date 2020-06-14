@@ -3,7 +3,9 @@ const h = w;
 const nrows = 25;
 const ncols = 25;
 const tileSize = w / ncols;
-const fRate = 10;
+const dificulty = 0.05;
+var score = 0;
+var fRate = 10;
 var mainSnake;
 var mainFood;
 
@@ -31,6 +33,10 @@ function setup() {
 function draw() {
     // Reset background
     background(0);
+
+    // Draw score
+    fill(255); 
+    text(`${floor(score)} puntos`, 0, 50); 
 
     // Check if snake is in food
     if (mainSnake.coords[0] == mainFood.coords[0] & mainSnake.coords[1] == mainFood.coords[1]) {
