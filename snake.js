@@ -7,6 +7,9 @@ class Snake {
         this.x = floor(x_mapped) * tileSize;
         this.y = floor(y_mapped) * tileSize;
         this.alive = true;
+        // Init sound generator
+        this.voice = new p5.MonoSynth();
+        this.note = 400;
         // Direction is none (snake does not move)
         this.direction = "none";
         // Init body array
@@ -87,6 +90,10 @@ class Snake {
         if (this.direction == "none") {
             this.draw();
         }
+
+
+        // Check if head collided with body
+        
     }
     // Method to change snake direction
     setDir(direction) {
@@ -123,6 +130,8 @@ class Snake {
     }
     // Method to eat
     eat() {
+        // Make sound
+        this.voice.play(this.note);
         // Push food position to body
         this.body.push([this.x, this.y]);
     }
